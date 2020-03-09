@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       tasks: [
         {
-          name: 'Work out',
+          name: 'Exercise',
           id: 1,
           completed: false
         },
@@ -21,6 +21,16 @@ class App extends React.Component {
           name: 'Water plants',
           id: 2,
           completed: true
+        },
+        {
+          name: 'Buy socks',
+          id: 3,
+          completed: false
+        },
+        {
+          name: 'Meditate',
+          id: 4,
+          completed: false
         }
       ],
       taskName: ''
