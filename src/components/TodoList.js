@@ -3,11 +3,11 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({taskData}) => {
+const TodoList = (props) => {
     //console.log(props.taskData);
     return (
         <>
-            {taskData.map(task => {
+            {props.tasks.map(task => {
                 return (
                     <Todo 
                         taskID={task.id}

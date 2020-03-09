@@ -9,26 +9,41 @@ class App extends React.Component {
   // this component is going to take care of state, and any change handlers you need to work with your state
   constructor() {
     super();
-    this.state = [
-      {
-        name: "Exercise",
-        id: 1, 
-        completed: false
-      },
-      {
-        name: "Water plants",
-        id: 2,
-        completed: true
-      }
-    ];
+    this.state = {
+      tasks: [
+        {
+          name: 'Work out',
+          id: 1,
+          completed: false
+        },
+        {
+          name: 'Water plants',
+          id: 2,
+          completed: true
+        }
+      ]
+    }
   };
+
+  // Event Handlers
+  handleInputChange = e => {
+    this.setState({[e.target.name]: e.target.value});
+    console.log(e.target.value);
+  }
+
+  handleAddTask = e => {
+    e.preventDefault();
+    const newTask = { name: this.state.taskName, id: Date.now(), completed: false };
+    console.log("New task:", newTask)
+    this.setState({ tasks: [...this.state.tasks, newTask] })
+  }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoForm />
-        <TodoList taskData={this.state} />
+        <TodoForm handleInputChange={this.handleInputChange} handleAddTask={this.handleAddTask} />
+        <TodoList tasks={this.state.tasks} />
       </div>
     );
   }
