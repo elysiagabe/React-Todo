@@ -38,12 +38,24 @@ class App extends React.Component {
     this.setState({ tasks: [...this.state.tasks, newTask] })
   }
 
+  toggleTaskStatus = clickedId => {
+    const newTasks = this.state.tasks.map(task => {
+      if (task.id === clickedId) {
+        return {...task, completed: !task.completed}
+      } else {
+        return task
+      }
+    })
+    this.setState({tasks: newTasks})
+    console.log(newTasks);
+  };
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoForm handleInputChange={this.handleInputChange} handleAddTask={this.handleAddTask} />
-        <TodoList tasks={this.state.tasks} />
+        <TodoList tasks={this.state.tasks} toggleTaskStatus={this.toggleTaskStatus} />
       </div>
     );
   }

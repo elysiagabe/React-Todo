@@ -10,9 +10,11 @@ const TodoList = (props) => {
             {props.tasks.map(task => {
                 return (
                     <Todo 
+                        key={task.id}
                         taskID={task.id}
                         taskName={task.name}
                         taskStatus={task.completed}
+                        toggleTaskStatus={props.toggleTaskStatus}
                     />
                 )
             })}
