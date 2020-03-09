@@ -39,13 +39,21 @@ class App extends React.Component {
       id: Date.now(), 
       completed: false 
     };
-    // console.log("New task:", newTask)
     this.setState({ 
       tasks: [...this.state.tasks, newTask],
       taskName: ''
     });
   }
 
+  handleClearCompleted = e => {
+    e.preventDefault();
+    const incompleteTasks = this.state.tasks.filter(task => {
+      if (task.completed === false) {
+        return {...task}
+      }
+    })
+    this.setState({tasks: incompleteTasks})
+  }
 
   toggleTaskStatus = clickedId => {
     const newTasks = this.state.tasks.map(task => {
@@ -63,7 +71,12 @@ class App extends React.Component {
     return (
       <div>
         <h1>What do you need to do today?</h1>
-        <TodoForm handleInputChange={this.handleInputChange} handleAddTask={this.handleAddTask} handleSubmit={this.handleSubmit} value={this.state.taskName} />
+        <TodoForm 
+          handleInputChange={this.handleInputChange} 
+          handleAddTask={this.handleAddTask} 
+          handleClearCompleted={this.handleClearCompleted}
+          value={this.state.taskName} 
+        />
         <TodoList tasks={this.state.tasks} toggleTaskStatus={this.toggleTaskStatus} />
       </div>
     );
