@@ -1,5 +1,6 @@
 import React from 'react';
 import { findAllByTestId } from '@testing-library/react';
+import './App.css';
 import TodoList from './components/TodoList';
 import TodoForm from './components/TodoForm';
 
@@ -21,22 +22,30 @@ class App extends React.Component {
           id: 2,
           completed: true
         }
-      ]
+      ],
+      taskName: ''
     }
   };
 
   // Event Handlers
   handleInputChange = e => {
-    this.setState({[e.target.name]: e.target.value});
-    console.log(e.target.value);
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleAddTask = e => {
     e.preventDefault();
-    const newTask = { name: this.state.taskName, id: Date.now(), completed: false };
-    console.log("New task:", newTask)
-    this.setState({ tasks: [...this.state.tasks, newTask] })
+    const newTask = { 
+      name: this.state.taskName, 
+      id: Date.now(), 
+      completed: false 
+    };
+    // console.log("New task:", newTask)
+    this.setState({ 
+      tasks: [...this.state.tasks, newTask],
+      taskName: ''
+    });
   }
+
 
   toggleTaskStatus = clickedId => {
     const newTasks = this.state.tasks.map(task => {
@@ -53,8 +62,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        <TodoForm handleInputChange={this.handleInputChange} handleAddTask={this.handleAddTask} />
+        <h1>What do you need to do today?</h1>
+        <TodoForm handleInputChange={this.handleInputChange} handleAddTask={this.handleAddTask} handleSubmit={this.handleSubmit} value={this.state.taskName} />
         <TodoList tasks={this.state.tasks} toggleTaskStatus={this.toggleTaskStatus} />
       </div>
     );

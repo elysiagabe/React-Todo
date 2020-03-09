@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Todo = props => {
-    console.log('to do props:', props)
+    // console.log('to do props:', props)
     return (
         <div 
             className="task" 
