@@ -7,7 +7,7 @@ const Todo = props => {
             className={`task ${props.taskStatus ? `complete-task` : `incomplete-task` }`}
             onClick={() => props.toggleTaskStatus(props.taskID)}
         >
-            <h2>{props.taskName}</h2>
+            <h3>{props.taskName}</h3>
             <p>Status: {props.taskStatus ? 'Completed' : 'Incomplete'} </p>
         </div>
     )

@@ -27,6 +27,11 @@ h1 {
 }
 
 h2 {
+    font-size: 3.2rem;
+    margin: 16px 0;
+}
+
+h3 {
     font-size: 2.8rem;
     font-weight: 600;
     color: #231B1B;
@@ -40,17 +45,21 @@ p {
 
 /* TASK STYLES */
 
-.task-list {
+.task-panel {
     display: flex; 
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.task {
+.completed-list, 
+.incomplete-list {
     width: 48%;
+}
+
+.task {
     border-radius: 3px;
     padding: 12px;
-    margin-top: 48px;
+    margin-bottom: 48px;
     height: 150px;
     box-shadow: 5px 5px 10px -5px #D3D3D3;  
     display: flex;
@@ -66,7 +75,7 @@ p {
     border: 2px solid #2CA58D;
 }
 
-.complete-task h2 {
+.complete-task h3 {
     text-decoration: line-through;
 }
 
