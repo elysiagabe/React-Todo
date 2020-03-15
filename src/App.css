@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,600&display=swap');
+
+* {
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 62.5%;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.6rem;
+    text-align: center;
+    font-weight: 300;
+    padding: 20px;
+    color: #231B1B;
+}
+
+h2 {
+    font-size: 3.2rem;
+    margin: 16px 0;
+}
+
+h3 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #231B1B;
+}
+
+p {
+    font-size: 2rem;
+    font-weight: 300;
+    color: #231B1B;
+}
+
+/* TASK STYLES */
+
+.task-panel {
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.completed-list, 
+.incomplete-list {
+    width: 48%;
+}
+
+.task {
+    border-radius: 3px;
+    padding: 12px;
+    margin-bottom: 48px;
+    height: 150px;
+    box-shadow: 5px 5px 10px -5px #D3D3D3;  
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-between;
+}
+
+.incomplete-task {
+    border: 2px solid #F46197;
+}
+
+.complete-task {
+    border: 2px solid #2CA58D;
+}
+
+.complete-task h3 {
+    text-decoration: line-through;
+}
+
+/* FORM STYLES */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+input {
+    font-size: 1.8rem;
+    width: 40%;
+    padding: 4px 8px;
+    border: none;
+    border-bottom: 2px solid #F46197;
+}
+
+input:focus-within {
+    background: none;
+}
+
+button {
+    padding: 4px 8px;
+    font-size: 1.6rem;
+    margin: 12px 0 12px 12px;
+    border-radius: 3px;
+}
+
+.add-btn {
+    border: none;
+    color: #fff;
+    background: #F46197;
+}
+
+.clear-btn {
+    border: none;
+    color: #fff;
+    background: #2CA58D;
+}
